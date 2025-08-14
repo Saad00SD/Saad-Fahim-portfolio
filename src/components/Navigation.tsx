@@ -14,11 +14,11 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-b border-border/30 shadow-lg">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="font-bold text-xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <div className="font-bold text-xl bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-transparent animate-glow">
             Portfolio
           </div>
 
@@ -28,17 +28,17 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-200 relative group"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 relative group transform hover:scale-110"
               >
                 {item.name}
-                <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
+                <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-primary to-foreground scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </a>
             ))}
           </div>
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <Button variant="outline" className="border-primary/20 hover:bg-primary/5">
+            <Button variant="outline" className="border-primary/30 hover:bg-primary/10 hover:border-primary transition-all duration-300 transform hover:scale-105">
               Download CV
             </Button>
           </div>

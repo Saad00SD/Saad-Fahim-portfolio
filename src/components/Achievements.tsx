@@ -59,11 +59,11 @@ const Achievements = () => {
   ];
 
   return (
-    <section id="achievements" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section id="achievements" className="py-20 bg-gradient-to-b from-accent/10 to-secondary/20 relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Awards & Certifications</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">Awards & Certifications</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: "0.2s" }}>
             Recognition of excellence in AI/ML development and continuous learning through 
             industry-standard certifications and academic achievements.
           </p>
@@ -71,18 +71,18 @@ const Achievements = () => {
 
         {/* Awards Section */}
         <div className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <Trophy className="text-primary" size={28} />
+          <div className="flex items-center gap-3 mb-8 animate-slide-right">
+            <Trophy className="text-primary animate-float" size={28} />
             <h3 className="text-3xl font-semibold">Awards & Recognition</h3>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {awards.map((award, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow border-border/50 bg-card/50 backdrop-blur-sm">
+              <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-border/50 bg-card/80 backdrop-blur-sm transform hover:scale-105 hover:rotate-1 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardHeader>
                   <div className="flex items-start justify-between">
-                    <Award className="text-primary mt-1" size={24} />
-                    <Badge variant="secondary" className="text-xs">
+                    <Award className="text-primary mt-1 group-hover:scale-110 transition-transform duration-300" size={24} />
+                    <Badge variant="secondary" className="text-xs group-hover:scale-105 transition-transform duration-300">
                       {award.date}
                     </Badge>
                   </div>

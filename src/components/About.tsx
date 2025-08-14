@@ -13,11 +13,11 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-20 bg-gradient-to-b from-secondary/20 to-accent/10 relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">About Me</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">About Me</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: "0.2s" }}>
             A passionate Computer Science graduate with expertise in AI/ML and Data Science. 
             I specialize in developing end-to-end machine learning solutions, from data preprocessing 
             to model deployment, with a focus on creating impactful and scalable systems.
@@ -25,13 +25,13 @@ const About = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skills.map((skillGroup) => {
+          {skills.map((skillGroup, index) => {
             const IconComponent = skillGroup.icon;
             return (
-              <Card key={skillGroup.category} className="hover:shadow-lg transition-shadow border-border/50 bg-card/50 backdrop-blur-sm">
+              <Card key={skillGroup.category} className="group hover:shadow-2xl transition-all duration-500 border-border/50 bg-card/80 backdrop-blur-sm transform hover:scale-105 hover:-rotate-1 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 p-3 rounded-full bg-primary/10 w-fit">
-                    <IconComponent size={32} className="text-primary" />
+                  <div className="mx-auto mb-4 p-3 rounded-full bg-primary/10 w-fit group-hover:bg-primary/20 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-12">
+                    <IconComponent size={32} className="text-primary group-hover:text-foreground transition-colors duration-300" />
                   </div>
                   <CardTitle className="text-xl">{skillGroup.category}</CardTitle>
                 </CardHeader>

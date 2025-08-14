@@ -7,11 +7,11 @@ import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-20 relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">Get In Touch</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: "0.2s" }}>
             I'm always interested in discussing new opportunities, innovative projects, 
             or collaborating on AI/ML initiatives. Let's connect!
           </p>
@@ -19,7 +19,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-8 animate-slide-left">
             <div>
               <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
               <p className="text-muted-foreground mb-8">
@@ -29,9 +29,9 @@ const Contact = () => {
             </div>
 
             <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-lg bg-primary/10">
-                  <Mail className="text-primary" size={20} />
+              <div className="flex items-center gap-4 group">
+                <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 transform group-hover:scale-110">
+                  <Mail className="text-primary group-hover:rotate-12 transition-transform duration-300" size={20} />
                 </div>
                 <div>
                   <p className="font-medium">Email</p>
@@ -39,9 +39,9 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-lg bg-primary/10">
-                  <Phone className="text-primary" size={20} />
+              <div className="flex items-center gap-4 group">
+                <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 transform group-hover:scale-110">
+                  <Phone className="text-primary group-hover:rotate-12 transition-transform duration-300" size={20} />
                 </div>
                 <div>
                   <p className="font-medium">Phone</p>
@@ -49,9 +49,9 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-lg bg-primary/10">
-                  <MapPin className="text-primary" size={20} />
+              <div className="flex items-center gap-4 group">
+                <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 transform group-hover:scale-110">
+                  <MapPin className="text-primary group-hover:rotate-12 transition-transform duration-300" size={20} />
                 </div>
                 <div>
                   <p className="font-medium">Location</p>
@@ -63,13 +63,13 @@ const Contact = () => {
             <div className="pt-6">
               <h4 className="font-medium mb-4">Follow Me</h4>
               <div className="flex gap-4">
-                <Button variant="outline" size="icon" className="hover:bg-primary/10 hover:border-primary/20">
+                <Button variant="outline" size="icon" className="hover:bg-primary/20 hover:border-primary/30 transform hover:scale-110 hover:rotate-6 transition-all duration-300">
                   <Github size={20} />
                 </Button>
-                <Button variant="outline" size="icon" className="hover:bg-primary/10 hover:border-primary/20">
+                <Button variant="outline" size="icon" className="hover:bg-primary/20 hover:border-primary/30 transform hover:scale-110 hover:-rotate-6 transition-all duration-300">
                   <Linkedin size={20} />
                 </Button>
-                <Button variant="outline" size="icon" className="hover:bg-primary/10 hover:border-primary/20">
+                <Button variant="outline" size="icon" className="hover:bg-primary/20 hover:border-primary/30 transform hover:scale-110 hover:rotate-6 transition-all duration-300">
                   <Mail size={20} />
                 </Button>
               </div>
@@ -77,7 +77,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+          <Card className="border-border/50 bg-card/80 backdrop-blur-sm animate-slide-right shadow-2xl">
             <CardHeader>
               <CardTitle className="text-xl">Send a Message</CardTitle>
               <CardDescription>
@@ -115,7 +115,7 @@ const Contact = () => {
                 />
               </div>
               
-              <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
+              <Button className="w-full bg-gradient-to-r from-primary to-foreground hover:from-foreground hover:to-primary transition-all duration-500 transform hover:scale-105 hover:shadow-xl">
                 <Send size={18} className="mr-2" />
                 Send Message
               </Button>
