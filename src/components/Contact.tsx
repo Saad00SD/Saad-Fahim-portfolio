@@ -4,14 +4,20 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const Contact = () => {
+  const { elementRef, isVisible } = useIntersectionObserver();
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
+    <section 
+      ref={elementRef}
+      id="contact" 
+      className={`py-20 relative overflow-hidden section-transition ${isVisible ? 'visible' : ''}`}
+    >
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">Get In Touch</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground stagger-1">Get In Touch</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto stagger-2">
             I'm always interested in discussing new opportunities, innovative projects, 
             or collaborating on AI/ML initiatives. Let's connect!
           </p>
@@ -19,9 +25,9 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8 animate-slide-left">
+          <div className="space-y-8 stagger-3">
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
+              <h3 className="text-2xl font-semibold mb-6 text-foreground">Let's Connect</h3>
               <p className="text-muted-foreground mb-8">
                 Whether you're looking for a data scientist, ML engineer, or just want to discuss 
                 the latest trends in AI, I'd love to hear from you.
@@ -35,7 +41,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium">Email</p>
-                  <p className="text-muted-foreground">your.email@example.com</p>
+                  <p className="text-muted-foreground">saadfahim2012@gmail.com</p>
                 </div>
               </div>
 
@@ -45,7 +51,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium">Phone</p>
-                  <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                  <p className="text-muted-foreground">+94 766533626</p>
                 </div>
               </div>
 
@@ -55,7 +61,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium">Location</p>
-                  <p className="text-muted-foreground">Your City, Country</p>
+                  <p className="text-muted-foreground">Galle, Sri Lanka</p>
                 </div>
               </div>
             </div>
@@ -63,13 +69,28 @@ const Contact = () => {
             <div className="pt-6">
               <h4 className="font-medium mb-4">Follow Me</h4>
               <div className="flex gap-4">
-                <Button variant="outline" size="icon" className="hover:bg-primary/20 hover:border-primary/30 transform hover:scale-110 hover:rotate-6 transition-all duration-300">
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  className="hover:bg-yellow-600/20 hover:border-yellow-600/30 transform hover:scale-110 hover:rotate-6 transition-all duration-300"
+                  onClick={() => window.open('https://github.com/Saad00SD', '_blank')}
+                >
                   <Github size={20} />
                 </Button>
-                <Button variant="outline" size="icon" className="hover:bg-primary/20 hover:border-primary/30 transform hover:scale-110 hover:-rotate-6 transition-all duration-300">
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  className="hover:bg-yellow-600/20 hover:border-yellow-600/30 transform hover:scale-110 hover:-rotate-6 transition-all duration-300"
+                  onClick={() => window.open('https://www.linkedin.com/in/saadfahim-sd/', '_blank')}
+                >
                   <Linkedin size={20} />
                 </Button>
-                <Button variant="outline" size="icon" className="hover:bg-primary/20 hover:border-primary/30 transform hover:scale-110 hover:rotate-6 transition-all duration-300">
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  className="hover:bg-yellow-600/20 hover:border-yellow-600/30 transform hover:scale-110 hover:rotate-6 transition-all duration-300"
+                  onClick={() => window.open('mailto:saadfahim2012@gmail.com', '_blank')}
+                >
                   <Mail size={20} />
                 </Button>
               </div>
@@ -77,9 +98,9 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="border-border/50 bg-card/80 backdrop-blur-sm animate-slide-right shadow-2xl">
+          <Card className="border-border/50 bg-card/90 backdrop-blur-sm shadow-2xl shadow-black/30 stagger-4">
             <CardHeader>
-              <CardTitle className="text-xl">Send a Message</CardTitle>
+              <CardTitle className="text-xl text-foreground">Send a Message</CardTitle>
               <CardDescription>
                 Fill out the form below and I'll get back to you as soon as possible.
               </CardDescription>

@@ -1,69 +1,69 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, Trophy, FileCheck, Star } from "lucide-react";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const Achievements = () => {
+  const { elementRef, isVisible } = useIntersectionObserver();
   const awards = [
     {
-      title: "Best AI Project Award",
-      organization: "University Tech Symposium 2024",
-      description: "Recognized for developing an innovative deep learning solution for medical image analysis",
-      date: "2024",
-      type: "award"
-    },
-    {
-      title: "Data Science Hackathon Winner",
-      organization: "TechCorp Innovation Challenge",
-      description: "First place in 48-hour hackathon for creating a real-time fraud detection system",
-      date: "2024",
+      title: "URAAN Project Exibition - Runner Up",
+      organization: "PAF-IAST",
+      description: "Developed the Hostel Management System for student registration, room allotments, mess management, and automated fee calculation",
+      date: "2023",
       type: "award"
     },
     {
       title: "Dean's List",
-      organization: "Computer Science Department",
-      description: "Academic excellence recognition for maintaining GPA above 3.8 for consecutive semesters",
-      date: "2023-2024",
+      organization: "PAF-IAST",
+      description: "Academic excellence recognition for the GPA  3.85 in Fall semester",
+      date: "2021",
       type: "award"
-    }
+    },
+    
   ];
 
   const certifications = [
     {
-      title: "AWS Certified Machine Learning - Specialty",
-      issuer: "Amazon Web Services",
-      date: "2024",
-      credentialId: "AWS-MLS-2024-001",
-      skills: ["ML Engineering", "Model Deployment", "Data Engineering"]
+      title: "Machine Learning Specialization",
+      issuer: "DeepLearning.AI",
+      date: "2025",
+      credentialId: "TH2FNPLD3Q2T",
+      skills: ["Supervised Learning", "Unsupervised Learning", "Neural Networks","CNN","TensorFlow","Keras","NLP","PyTorch","Data Augmentation","Deploying ML Models"]
     },
     {
-      title: "TensorFlow Developer Certificate",
+      title: "Generative AI Explorer - Vertex AI",
       issuer: "Google",
+      date: "2025",
+      credentialId: "13679043",
+      skills: ["Vertex AI", "Gemini AI 1.5 Pro", " Generative AI","Google Cloud Platform(GCP)"]
+    },
+    {
+      title: "Python Programming",
+      issuer: "University of Moratuwa",
       date: "2024",
-      credentialId: "TF-DEV-2024-001",
-      skills: ["Deep Learning", "Neural Networks", "Computer Vision"]
+      credentialId: "meytDnM1HT",
+      skills: ["OOP", "Data Structures", "TCP","Computer Networks","Version Control","Pandas","Numpy","Scikit-Learn","Databases"]
     },
     {
-      title: "Professional Data Scientist",
-      issuer: "DataCamp",
-      date: "2023",
-      credentialId: "DC-PDS-2023-001",
-      skills: ["Statistical Analysis", "Python", "Machine Learning"]
-    },
-    {
-      title: "Microsoft Azure Data Scientist Associate",
-      issuer: "Microsoft",
-      date: "2023",
-      credentialId: "MS-AZ-2023-001",
-      skills: ["Azure ML", "MLOps", "Data Science Lifecycle"]
+      title: "Web Design for Beginners",
+      issuer: "University of Moratuwa",
+      date: "2024",
+      credentialId: "Xw4Gu7MlGk",
+      skills: ["JavaScript", "HTML", "CSS","HTML 5"]
     }
   ];
 
   return (
-    <section id="achievements" className="py-20 bg-gradient-to-b from-accent/10 to-secondary/20 relative overflow-hidden">
+    <section 
+      ref={elementRef}
+      id="achievements" 
+      className={`py-20 bg-gradient-to-b from-accent/5 to-secondary/10 relative overflow-hidden section-transition ${isVisible ? 'visible' : ''}`}
+    >
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">Awards & Certifications</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground stagger-1">Awards & Certifications</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto stagger-2">
             Recognition of excellence in AI/ML development and continuous learning through 
             industry-standard certifications and academic achievements.
           </p>
@@ -71,14 +71,14 @@ const Achievements = () => {
 
         {/* Awards Section */}
         <div className="mb-16">
-          <div className="flex items-center gap-3 mb-8 animate-slide-right">
+          <div className="flex items-center gap-3 mb-8 stagger-3">
             <Trophy className="text-primary animate-float" size={28} />
-            <h3 className="text-3xl font-semibold">Awards & Recognition</h3>
+            <h3 className="text-3xl font-semibold text-foreground">Awards</h3>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center mx-auto">
             {awards.map((award, index) => (
-              <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-border/50 bg-card/80 backdrop-blur-sm transform hover:scale-105 hover:rotate-1 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card key={index} className={`group hover:shadow-2xl transition-all duration-500 border-border/50 bg-card/90 backdrop-blur-sm transform hover:scale-105 hover:rotate-1 shadow-lg shadow-black/20 stagger-${index + 4} mx-auto`}>
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <Award className="text-primary mt-1 group-hover:scale-110 transition-transform duration-300" size={24} />
@@ -101,14 +101,14 @@ const Achievements = () => {
 
         {/* Certifications Section */}
         <div>
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-8 stagger-5">
             <FileCheck className="text-primary" size={28} />
-            <h3 className="text-3xl font-semibold">Professional Certifications</h3>
+            <h3 className="text-3xl font-semibold text-foreground">Professional Certifications</h3>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6">
             {certifications.map((cert, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow border-border/50 bg-card/50 backdrop-blur-sm">
+              <Card key={index} className={`hover:shadow-lg transition-shadow border-border/50 bg-card/70 backdrop-blur-sm shadow-md shadow-black/10 stagger-${index + 6}`}>
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-2">
@@ -143,10 +143,10 @@ const Achievements = () => {
           </div>
         </div>
 
-        <div className="mt-16 text-center">
-          <Card className="max-w-2xl mx-auto bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
+        {/* <div className="mt-16 text-center stagger-7">
+          <Card className="max-w-2xl mx-auto bg-gradient-to-r from-primary/10 to-accent/10 border-primary/30 shadow-xl shadow-black/30">
             <CardContent className="p-8">
-              <h4 className="text-xl font-semibold mb-4">Continuous Learning</h4>
+              <h4 className="text-xl font-semibold mb-4 text-foreground">Continuous Learning</h4>
               <p className="text-muted-foreground">
                 I believe in staying updated with the latest trends in AI/ML. Currently pursuing 
                 advanced certifications in MLOps and exploring cutting-edge research in 
@@ -154,7 +154,7 @@ const Achievements = () => {
               </p>
             </CardContent>
           </Card>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -150,6 +150,22 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'spin-slow': {
+					'0%': {
+						transform: 'rotate(0deg)'
+					},
+					'100%': {
+						transform: 'rotate(360deg)'
+					}
+				},
+				'spin-slow-reverse': {
+					'0%': {
+						transform: 'rotate(360deg)'
+					},
+					'100%': {
+						transform: 'rotate(0deg)'
+					}
 				}
 			},
 			animation: {
@@ -162,7 +178,9 @@ export default {
 				'scale-in': 'scale-in 0.6s ease-out forwards',
 				'bounce': 'bounce 2s infinite',
 				'glow': 'glow 2s ease-in-out infinite',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'spin-slow': 'spin-slow 8s linear infinite',
+				'spin-slow-reverse': 'spin-slow-reverse 12s linear infinite'
 			}
 		}
 	},

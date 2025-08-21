@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,6 +9,7 @@ const Navigation = () => {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
     { name: "Achievements", href: "#achievements" },
     { name: "Contact", href: "#contact" },
@@ -18,8 +20,8 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="font-bold text-xl bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-transparent animate-glow">
-            Portfolio
+          <div className="font-bold text-3xl bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
+            Saad Fahim
           </div>
 
           {/* Desktop Navigation */}
@@ -28,19 +30,22 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-muted-foreground hover:text-primary transition-all duration-300 relative group transform hover:scale-110"
+                className="text-muted-foreground hover:text-yellow-600 transition-all duration-300 relative group transform hover:scale-110"
               >
                 {item.name}
-                <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-primary to-foreground scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-yellow-600 to-yellow-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </a>
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:block">
-            <Button variant="outline" className="border-primary/30 hover:bg-primary/10 hover:border-primary transition-all duration-300 transform hover:scale-105">
-              Download CV
-            </Button>
+          {/* Desktop CTA and Theme Toggle */}
+          <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
+            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="border-yellow-600/30 hover:bg-yellow-600/10 hover:border-yellow-600 transition-all duration-300 transform hover:scale-105">
+                Download CV
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -68,9 +73,14 @@ const Navigation = () => {
                   {item.name}
                 </a>
               ))}
-              <Button variant="outline" className="border-primary/20 hover:bg-primary/5 mt-4">
-                Download CV
-              </Button>
+              <div className="flex items-center justify-center space-x-2 mt-4">
+                <ThemeToggle />
+                <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="border-yellow-600/20 hover:bg-yellow-600/5">
+                    Download CV
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         )}

@@ -1,23 +1,29 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Database, LineChart, Code, Cpu, BarChart3 } from "lucide-react";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const About = () => {
+  const { elementRef, isVisible } = useIntersectionObserver();
   const skills = [
     { category: "Machine Learning", icon: Brain, items: ["TensorFlow", "PyTorch", "Scikit-learn", "Keras", "XGBoost"] },
     { category: "Data Science", icon: BarChart3, items: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter"] },
-    { category: "Programming", icon: Code, items: ["Python", "R", "SQL", "JavaScript", "Java"] },
-    { category: "Big Data", icon: Database, items: ["Apache Spark", "Hadoop", "MongoDB", "PostgreSQL", "Redis"] },
-    { category: "Cloud & MLOps", icon: Cpu, items: ["AWS", "Docker", "Kubernetes", "MLflow", "Git"] },
+    { category: "Programming", icon: Code, items: ["Python", "C++", "SQL", "C#"] },
+    { category: "Big Data", icon: Database, items: ["Apache Spark", "Hadoop", "MongoDB", "PostgreSQL", "Kafka"] },
+    { category: "Cloud & MLOps", icon: Cpu, items: ["Azure", "Docker", "Kubernetes", "MLflow", "Git"] },
     { category: "Analytics", icon: LineChart, items: ["Tableau", "Power BI", "Excel", "SPSS", "Statistical Analysis"] }
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-secondary/20 to-accent/10 relative overflow-hidden">
+    <section 
+      ref={elementRef}
+      id="about" 
+      className={`py-20 bg-gradient-to-b from-secondary/10 to-accent/5 relative overflow-hidden section-transition ${isVisible ? 'visible' : ''}`}
+    >
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">About Me</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground stagger-1">About Me</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto stagger-2">
             A passionate Computer Science graduate with expertise in AI/ML and Data Science. 
             I specialize in developing end-to-end machine learning solutions, from data preprocessing 
             to model deployment, with a focus on creating impactful and scalable systems.
@@ -28,7 +34,7 @@ const About = () => {
           {skills.map((skillGroup, index) => {
             const IconComponent = skillGroup.icon;
             return (
-              <Card key={skillGroup.category} className="group hover:shadow-2xl transition-all duration-500 border-border/50 bg-card/80 backdrop-blur-sm transform hover:scale-105 hover:-rotate-1 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card key={skillGroup.category} className={`group hover:shadow-2xl transition-all duration-500 border-border/50 bg-card/90 backdrop-blur-sm transform hover:scale-105 hover:-rotate-1 shadow-lg shadow-black/20 stagger-${index + 3}`}>
                 <CardHeader className="text-center">
                   <div className="mx-auto mb-4 p-3 rounded-full bg-primary/10 w-fit group-hover:bg-primary/20 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-12">
                     <IconComponent size={32} className="text-primary group-hover:text-foreground transition-colors duration-300" />
@@ -49,28 +55,21 @@ const About = () => {
           })}
         </div>
 
-        <div className="mt-16 max-w-4xl mx-auto">
-          <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
+        <div className="mt-16 max-w-4xl mx-auto stagger-5">
+          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-primary/30 shadow-xl shadow-black/30">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-semibold mb-4 text-center">Experience & Education</h3>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-lg font-medium mb-3 text-primary">Education</h4>
-                  <p className="text-muted-foreground">
-                    <strong>Bachelor of Science in Computer Science</strong><br />
-                    Specialization: AI/ML and Data Science<br />
-                    Focus on machine learning algorithms, statistical analysis, and data engineering
-                  </p>
-                </div>
-                <div>
-                  <h4 className="text-lg font-medium mb-3 text-primary">Interests</h4>
-                  <p className="text-muted-foreground">
-                    Deep Learning, Natural Language Processing, Computer Vision, 
-                    Predictive Analytics, Data Visualization, and MLOps. 
-                    Always exploring the latest trends in AI and emerging technologies.
-                  </p>
-                </div>
+              <h3 className="text-2xl font-semibold mb-4 text-center text-foreground">Education</h3>
+              <div className="flex flex-col items-center justify-center gap-8">
+                <p className="text-muted-foreground text-center">
+                  <strong className="text-foreground">Bachelor of Science in Computer Science</strong><br />
+                  Pak-Austria Fachhochschule Institute of Applied Sciences and Technology
+                </p>
+                <p className="text-muted-foreground text-center">
+                  <strong className="text-foreground">G.C.E (Adavanced Level)</strong><br />
+                  All Saint's College 
+                </p>
               </div>
+              
             </CardContent>
           </Card>
         </div>
